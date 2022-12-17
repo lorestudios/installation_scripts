@@ -31,4 +31,4 @@ sudo apt install docker-compose-plugin && \
 
 sudo groupadd docker && \
 sudo usermod -aG docker debian && \
-newgrp docker && \
+newgrp docker
