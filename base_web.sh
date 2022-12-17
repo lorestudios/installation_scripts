@@ -7,17 +7,17 @@ sudo apt upgrade -y && \
 sudo apt update && \
 
 sudo sed -i 's/#AddressFamily\ any/AddressFamily\ inet/g' /etc/ssh/sshd_config && \
-sudo sed -i 's/#Port\ 22/Port\ 8572/g' /etc/ssh/sshd_config && \
+# sudo sed -i 's/#Port\ 22/Port\ 8572/g' /etc/ssh/sshd_config && \
 sudo sed -i 's/#PermitRootLogin\ prohibit-password/PermitRootLogin\ no/g' /etc/ssh/sshd_config && \
 sudo systemctl restart sshd && \
 
-sudo apt -y install ufw && \
-sudo ufw allow 8572 && \
-sudo ufw --force enable && \
+# sudo apt -y install ufw && \
+# sudo ufw allow 8572 && \
+# sudo ufw --force enable && \
 
 sudo apt install fail2ban -y && \
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local && \
-sudo sed -i 's/=\ ssh/=\ 8572/g' /etc/fail2ban/jail.local && \
+# sudo sed -i 's/=\ ssh/=\ 8572/g' /etc/fail2ban/jail.local && \
 sudo service fail2ban restart && \
 
 sudo apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common && \
