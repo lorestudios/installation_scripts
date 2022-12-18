@@ -28,7 +28,10 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] 
 sudo apt update
 
 sudo apt -y install docker-ce docker-ce-cli containerd.io
-sudo apt install docker-compose-plugin
+
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.14.1/docker-compose-$(uname -s)-$(uname -m)"  -o /usr/local/bin/docker-compose
+sudo mv /usr/local/bin/docker-compose /usr/bin/docker-compose
+sudo chmod +x /usr/bin/docker-compose
 
 sudo groupadd docker
 sudo usermod -aG docker debian
