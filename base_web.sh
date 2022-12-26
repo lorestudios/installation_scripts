@@ -13,6 +13,8 @@ sudo systemctl restart sshd
 
 sudo apt -y install ufw
 sudo ufw allow 8572
+sudo ufw allow http
+sudo ufw allow https
 sudo ufw --force enable
 
 sudo apt install fail2ban -y
@@ -36,3 +38,8 @@ sudo chmod +x /usr/bin/docker-compose
 sudo groupadd docker
 sudo usermod -aG docker debian
 newgrp docker
+
+sudo mkdir /home/debian/web
+sudo curl https://raw.githubusercontent.com/lorestudios/installation_scripts/main/base_web.sh -o /home/debian/web/docker-compose.yml
+sudo docker network create web
+sudo docker-compose -f /home/debian/web/docker-compose up -d --force-recreate --remove-orphans
