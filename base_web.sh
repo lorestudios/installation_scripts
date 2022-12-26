@@ -40,6 +40,6 @@ sudo usermod -aG docker debian
 newgrp docker
 
 sudo mkdir /home/debian/web
-sudo curl https://raw.githubusercontent.com/lorestudios/installation_scripts/main/base_web.sh -o /home/debian/web/docker-compose.yml
+sudo curl https://raw.githubusercontent.com/lorestudios/docker-compose-web/main/compose -o /home/debian/web/docker-compose.yml
 sudo docker network create web
-sudo docker-compose -f /home/debian/web/docker-compose up -d --force-recreate --remove-orphans
+sudo docker-compose -f /home/debian/web/docker-compose.yml up -d --force-recreate --remove-orphans
